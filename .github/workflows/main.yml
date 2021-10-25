@@ -51,10 +51,10 @@ jobs:
         env: 
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         run: |
-          mkdir -p ~/.ssh/
-          echo "$SSH_PRIVATE_KEY" > ../privatekey.pem
-          sudo chmod 600 ../privatekey.pem
-          ssh -i ../privatekey.pem root@hequanjie.com
+          mkdir ~/.ssh
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/privatekey.pem
+          sudo chmod 400 ~/.ssh/privatekey.pem
+          ssh -i ~/.ssh/privatekey.pem root@hequanjie.com
 
       - name: Git clone the repository and npm install
         run: |
