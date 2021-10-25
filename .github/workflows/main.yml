@@ -46,15 +46,17 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-
+      - uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.SSH_PRIVATE_KEY }} 
       - name: SSH login
         env: 
-          SSH_USER: ${{ secrets.SSH_USERNAME }}
-          SSH_PASSWORD: ${{ secrets.SSH_PASSWORD }}
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         run: |
-          ssh ${SSH_USER}@hequanjie.com
-          $SSH_PASSWORD
+          mkdir -p ~/.ssh/
+          echo "$SSH_PRIVATE_KEY" > ../privatekey.pem
+          sudo chmod 600 ../privatekey.pem
+          ssh -i ../privatekey.pem root@hequanjie.com
 
       - name: Git clone the repository and npm install
         run: |
