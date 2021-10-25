@@ -9,6 +9,7 @@ COPY package.json package-lock.json ./
  
 # Install any needed packages
 RUN npm i
+RUN npm install -g @angular/cli@latest
  
 # Bundle app source
 COPY . .
