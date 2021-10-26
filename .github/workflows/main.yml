@@ -70,7 +70,7 @@ jobs:
         run: |
           sudo apt-get update 
           npm install -g @angular/cli@12.2.11
-          ng update --all
+          npm ci
           ng build --prod
     
       - name: SSH connection
