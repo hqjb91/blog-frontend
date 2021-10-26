@@ -81,4 +81,4 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
           source: "dist"
-          target: "app/blog-backend/dist"
+          target: "/app/blog-backend"
