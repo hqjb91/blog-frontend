@@ -71,12 +71,10 @@ jobs:
           sudo apt-get update 
           npm install -g @angular/cli@12.2.11
           ng update --all
-          npm ci
-          npm update
           ng build --prod
     
       - name: SSH connection
-        uses: appleboy/ssh-action@master
+        uses: appleboy/scp-action@master
         with:
           host: hequanjie.com
           username: root
