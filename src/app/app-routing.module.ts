@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ArticleComponent } from './components/articles/article.component';
+import { ArticlesComponent } from './components/articles/articles.component';
 import { AboutComponent } from './components/main/about.component';
 import { CategoriesComponent } from './components/main/categories.component';
 import { HomeComponent } from './components/main/home.component';
@@ -17,7 +17,7 @@ const routes: Routes = [
   { path:'about', component: AboutComponent },
   { path:'tags', component: TagsComponent },
   { path:'categories', component: CategoriesComponent },
-  { path:'article', component: ArticleComponent },
+  { path:'articles', component: ArticlesComponent },
   { path: '**', redirectTo: '', pathMatch: 'full'} // Wildcard match
 ];
 
