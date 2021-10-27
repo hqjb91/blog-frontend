@@ -7,7 +7,7 @@
                     <mat-card-subtitle>By {{article.username}} on {{article.date}}</mat-card-subtitle>
                 </mat-card-header>
                 <img mat-card-image *ngIf="article.image" src="{{article.image}}">
-                <img mat-card-image ngIf="article.image" src="https://via.placeholder.com/600/FF0000/FFFFFF?Text=Click here for more information on {{article.title}}">
+                <img mat-card-image *ngIf="!article.image" src="https://picsum.photos/200/300/?blur=2">
                 <mat-card-content>
                 <p>
                     {{article.summary}}
