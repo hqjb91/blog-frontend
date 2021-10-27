@@ -1,6 +1,7 @@
 .header {
     height: 20vh;
-    background-image: url('/assets/toolbar-wood-min.jpg');
+    background-image: url('/assets/toolbar-city.jpg');
+    background-size: 100%;
 }
 
 .secondarybar {
