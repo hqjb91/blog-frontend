@@ -3,9 +3,8 @@
         <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let article of articles">
             <mat-card class="card">
                 <mat-card-header>
-                <div mat-card-avatar class="header-image"></div>
-                <mat-card-title>{{article.title}}</mat-card-title>
-                <mat-card-subtitle>By {{article.username}} on {{article.date}}</mat-card-subtitle>
+                    <mat-card-title>{{article.title}}</mat-card-title>
+                    <mat-card-subtitle>By {{article.username}} on {{article.date}}</mat-card-subtitle>
                 </mat-card-header>
                 <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
                 <mat-card-content>

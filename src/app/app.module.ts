@@ -7,7 +7,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/main/navbar.component';
-import { HomeComponent } from './components/main/home.component';
 import { AboutComponent } from './components/main/about.component';
 import { TagsComponent } from './components/main/tags.component';
 import { CategoriesComponent } from './components/main/categories.component';
@@ -20,7 +19,7 @@ import { ArticlesComponent } from './components/articles/articles.component';
 @NgModule({
   declarations: [
     AppComponent, NavbarComponent,
-    HomeComponent, AboutComponent,
+    AboutComponent,
     TagsComponent, CategoriesComponent,
     ArticleComponent, LoginComponent,
     ArticlesComponent,

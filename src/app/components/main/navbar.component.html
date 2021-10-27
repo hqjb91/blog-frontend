@@ -5,19 +5,16 @@
     </a>
     <span class="spacer"></span>
     <div fxHide.lt-md="true">
-      <button mat-button [routerLink]="['/']">Home</button>
       <button mat-button [routerLink]="['/about']">About</button>
       <button mat-button [routerLink]="['/tags']">Tags</button>
       <button mat-button [routerLink]="['/categories']">Categories</button>
-      <button mat-button [routerLink]="['/articles']">Articles</button>
       <button mat-button [routerLink]="['/login']">Login</button>
     </div>
   </mat-toolbar>
-  <mat-toolbar class="secondarybar" fxHide.gt-sm="true" fxLayoutAlign="space-around center">
+  <mat-toolbar class="secondarybar" fxHide.gt-sm="true">
       <button mat-button [routerLink]="['/about']">About</button>
       <button mat-button [routerLink]="['/tags']">Tags</button>
       <button mat-button [routerLink]="['/categories']">Categories</button>
-      <button mat-button [routerLink]="['/articles']">Articles</button>
       <button mat-button [routerLink]="['/login']">Login</button>
   </mat-toolbar>
 </div>
