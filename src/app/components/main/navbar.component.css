@@ -1,6 +1,11 @@
-.mat-toolbar {
+.header {
     height: 20vh;
     background-image: url('/assets/toolbar-wood-min.jpg');
+}
+
+.secondarybar {
+    height: 5vh;
+    font-size: 80%;
 }
 
 a {
@@ -12,10 +17,6 @@ a {
 button {
     font-size: 110%;
     min-width: min-content;
-}
-
-.icon {
-    padding: 0 14px;
 }
 
 .spacer {

@@ -1,10 +1,5 @@
 <div>
-  <mat-toolbar color="primary">
-    <div fxShow="true" fxHide.gt-sm="true">
-      <button mat-icon-button (click)="sidenav.toggle()">
-        <mat-icon>menu</mat-icon>
-      </button>
-    </div>
+  <mat-toolbar class="header">
     <a mat-button class="brand" routerLink="/">
       <span>He Quanjie's Blog</span>
     </a>
@@ -18,14 +13,12 @@
       <button mat-button [routerLink]="['/login']">Login</button>
     </div>
   </mat-toolbar>
-  <mat-sidenav color="primary" #sidenav fxLayout="row" fxHide.gt-sm="true">
-    <div fxLayout="row">
+  <mat-toolbar class="secondarybar" fxHide.gt-sm="true">
       <button mat-button [routerLink]="['/home']">Home</button>
       <button mat-button [routerLink]="['/about']">About</button>
       <button mat-button [routerLink]="['/tags']">Tags</button>
       <button mat-button [routerLink]="['/categories']">Categories</button>
       <button mat-button [routerLink]="['/articles']">Articles</button>
       <button mat-button [routerLink]="['/login']">Login</button>
-    </div>
-  </mat-sidenav>
+  </mat-toolbar>
 </div>
