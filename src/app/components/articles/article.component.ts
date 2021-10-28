@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SecurityContext } from '@angular/core';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { Article } from 'src/app/models/Article';
 import { ArticleService } from 'src/app/services/article.service';
@@ -12,19 +13,22 @@ export class ArticleComponent implements OnInit {
 
   articleId: number = 0;
   article: Article = {
-    id: 0, title: "", summary: "", content: "",
-    image: "", date: new Date(), category: "",
-    tags: [], username: "",
+    id: 0, title: "Sample title", summary: "Sample summary", content: `<b>Sample content</b>`,
+    image: "", date: new Date(), category: "Sample category",
+    tags: [ "Sample tag" ], username: "Sample username",
   };
+  data: any | SafeHtml = this.sanitizer.sanitize(SecurityContext.HTML, this.article.content);
 
-  constructor(private route: ActivatedRoute, private articleServce: ArticleService) { }
+  constructor(private route: ActivatedRoute, private articleService: ArticleService, private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-      console.log(params);
       this.articleId = parseInt(params.id);
     });
-    this.articleServce.getArticleById(this.articleId).subscribe( res => this.article = res.article );
+    this.articleService.getArticleById(this.articleId).subscribe( res => {
+      this.article = res.article;                      
+      this.data = this.sanitizer.sanitize(SecurityContext.HTML, res.article.content);
+    });
   }
 
 }

@@ -1,0 +1,24 @@
+article {
+    color: #fff;
+}
+
+.subtitle {
+    padding: 16px;
+}
+
+.title {
+    padding: 16px;
+}
+
+mat-divider {
+    padding: 16px;
+}
+
+.content {
+    padding: 16px;
+}
+
+.content img {
+    padding-right: 16px;
+    float: left;
+}
