@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ArticlesResponse } from '../models/Article';
+import { Article, ArticlesResponse } from '../models/Article';
 
 @Injectable({providedIn: 'root'})
 export class ArticleService {
@@ -16,6 +16,13 @@ export class ArticleService {
         const queryParams = new HttpParams().set('limit', limit).set('offset', offset);
 
         return this.http.get<ArticlesResponse>('/api/article', {params: queryParams});
+    }
+
+    /**
+     * This method returns the total number of articles stored in the database
+     */
+    getArticleById(id: number): Observable<{success: Boolean, article: Article}> {
+        return this.http.get<{success: Boolean, article: Article}>(`/api/article?id=${id}`);
     }
 
     /**

@@ -1,1 +1,11 @@
-<p>You have selected {{articleId}}</p>
+<article>
+    {{article.username}} / {{article.date}}
+    <h1 class="title">{{article.title}}</h1>
+    <mat-divider></mat-divider>
+    <img *ngIf="article.image" src="{{article.image}}">
+    <img *ngIf="!article.image" src="https://picsum.photos/200/200/?blur=2">
+    <mat-divider></mat-divider>
+    <p>
+        {{article.content}}
+    </p>
+</article>

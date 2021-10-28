@@ -4,10 +4,11 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatDividerModule } from '@angular/material/divider';
 
 const MATERIAL = [
   MatButtonModule, MatToolbarModule, MatIconModule, 
-  MatCardModule, MatPaginatorModule
+  MatCardModule, MatPaginatorModule, MatDividerModule
 ]
 
 @NgModule({
