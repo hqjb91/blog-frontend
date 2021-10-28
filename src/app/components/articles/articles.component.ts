@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Article } from 'src/app/models/Article';
+import { Article, ArticleWithoutContent } from 'src/app/models/Article';
 import { ArticleService } from 'src/app/services/article.service';
 import { PageEvent } from '@angular/material/paginator';
 
@@ -13,7 +13,7 @@ export class ArticlesComponent implements OnInit {
   /**
    * Initialise the component class variables
    */
-  articles: Array<Article> = [];
+  articles: Array<ArticleWithoutContent> = [];
   length: number = 0;
   limit: number = 8;
   offset: number = 0;

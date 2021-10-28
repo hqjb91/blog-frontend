@@ -1,3 +1,14 @@
+export interface ArticleWithoutContent {
+    id: number;
+    title: string;
+    summary: string;
+    image: string;
+    date: Date;
+    category: string;
+    tags: Array<string>;
+    username: string;
+}
+
 export interface Article {
     id: number;
     title: string;
@@ -10,7 +21,12 @@ export interface Article {
     username: string;
 }
 
+export interface ArticlesResponse {
+    success: string;
+    articlesSlice: Array<ArticleWithoutContent>;
+}
+
 export interface ArticleResponse {
     success: string;
-    articlesSlice: Array<Article>;
+    article: Article;
 }

@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ArticleResponse } from '../models/Article';
+import { ArticlesResponse } from '../models/Article';
 
 @Injectable({providedIn: 'root'})
 export class ArticleService {
@@ -12,10 +12,10 @@ export class ArticleService {
      * @param offset 
      * @returns Observable list of articles
      */
-    getAllArticles(limit: string, offset: string): Observable<ArticleResponse> {
+    getAllArticles(limit: string, offset: string): Observable<ArticlesResponse> {
         const queryParams = new HttpParams().set('limit', limit).set('offset', offset);
 
-        return this.http.get<ArticleResponse>('/api/article', {params: queryParams});
+        return this.http.get<ArticlesResponse>('/api/article', {params: queryParams});
     }
 
     /**
