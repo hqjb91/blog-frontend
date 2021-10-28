@@ -1,0 +1,1 @@
+import { SafehtmlPipe } from './safehtml.pipe';

@@ -14,6 +14,8 @@ import { ArticleComponent } from './components/articles/article.component';
 import { LoginComponent } from './components/users/login.component';
 import { MaterialModule } from './modules/material/material.module';
 import { ArticlesComponent } from './components/articles/articles.component';
+import { SafehtmlPipe } from './pipes/safehtml.pipe';
+import { RunscriptsDirective } from './directives/runscripts.directive';
 
 
 @NgModule({
@@ -23,6 +25,8 @@ import { ArticlesComponent } from './components/articles/articles.component';
     TagsComponent, CategoriesComponent,
     ArticleComponent, LoginComponent,
     ArticlesComponent,
+    SafehtmlPipe,
+    RunscriptsDirective,
   ],
   imports: [
     BrowserModule, FlexLayoutModule,

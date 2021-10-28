@@ -17,7 +17,7 @@ export class ArticleComponent implements OnInit {
     image: "", date: new Date(), category: "Sample category",
     tags: [ "Sample tag" ], username: "Sample username",
   };
-  data: any | SafeHtml = this.sanitizer.sanitize(SecurityContext.HTML, this.article.content);
+  data: any | SafeHtml = this.article.content;
 
   constructor(private route: ActivatedRoute, private articleService: ArticleService, private sanitizer: DomSanitizer) { }
 
@@ -26,8 +26,7 @@ export class ArticleComponent implements OnInit {
       this.articleId = parseInt(params.id);
     });
     this.articleService.getArticleById(this.articleId).subscribe( res => {
-      this.article = res.article;                      
-      this.data = this.sanitizer.sanitize(SecurityContext.HTML, res.article.content);
+      this.article = res.article;
     });
   }
 
