@@ -21,3 +21,8 @@
         </div>
     </div>
 </div>
+<mat-paginator  [length]="length"
+                [pageSize]="limit"
+                [pageSizeOptions]="pageSizeOptions"
+                (page)="onChangePage($event)" showFirstLastButtons>
+</mat-paginator>

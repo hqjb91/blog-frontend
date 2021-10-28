@@ -12,5 +12,5 @@ export interface Article {
 
 export interface ArticleResponse {
     success: string;
-    articles: Array<Article>;
+    articlesSlice: Array<Article>;
 }
