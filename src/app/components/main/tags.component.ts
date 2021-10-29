@@ -18,9 +18,9 @@ export class TagsComponent implements OnInit {
       height: 400,
       overflow: false,
       zoomOnHover: {
-        scale: 1.2,
-        transitionTime: 0.3,
-        delay: 0.3
+        scale: 1.3,
+        transitionTime: 0.8,
+        delay: 0
       },
       realignOnResize: true
     };
@@ -30,7 +30,7 @@ export class TagsComponent implements OnInit {
   constructor(private articleService: ArticleService) { }
 
   ngOnInit(): void {
-    // this.initialiseData();
+    this.data = this.initialiseData();
   }
 
   initialiseData(){
@@ -43,8 +43,6 @@ export class TagsComponent implements OnInit {
         })
       }
     });
-    // const changedData$: Observable<CloudData[]> = of(results);
-    // changedData$.subscribe(res => this.data = res);
     return results;
   }
 }
