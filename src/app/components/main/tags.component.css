@@ -1,4 +1,4 @@
-::ng-deep angular-tag-cloud.custom-css a {
+a {
     text-decoration: none;
     color: inherit;
 }

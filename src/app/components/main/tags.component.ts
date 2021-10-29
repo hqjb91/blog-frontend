@@ -21,9 +21,7 @@ export class TagsComponent implements OnInit {
         scale: 2,
         transitionTime: 0.8,
         delay: 0
-      },
-      realignOnResize: true,
-      randomizeAngle: true
+      }
     };
 
    data: CloudData[] = [];
