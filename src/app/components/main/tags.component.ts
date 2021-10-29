@@ -21,7 +21,9 @@ export class TagsComponent implements OnInit {
         scale: 2,
         transitionTime: 0.8,
         delay: 0
-      }
+      },
+      realignOnResize: true,
+      randomizeAngle: true
     };
 
    data: CloudData[] = [];
@@ -29,7 +31,9 @@ export class TagsComponent implements OnInit {
   constructor(private articleService: ArticleService) { }
 
   ngOnInit(): void {
+    console.log(`Before intialise ${this.data}`);
     this.initialiseData();
+    console.log(`After intialise ${this.data}`);
   }
 
   initialiseData(){
@@ -42,6 +46,7 @@ export class TagsComponent implements OnInit {
         })
       }
     });
+    console.log(results);
 
     const changedData$: Observable<CloudData[]> = of(results);
     changedData$.subscribe(res => this.data = res);
