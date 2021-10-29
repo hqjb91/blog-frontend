@@ -14,16 +14,16 @@ export class TagsComponent implements OnInit {
    * Initialise the component class variables
    */
    options: CloudOptions = {
-      width: 1000,
+      width: 0.8,
       height: 400,
       overflow: false,
-   };
-
-   zoomOnHoverOptions: ZoomOnHoverOptions = {
-    scale: 1.5,
-    transitionTime: 1.2,
-    delay: 0.8
-  };
+      zoomOnHover: {
+        scale: 1.2,
+        transitionTime: 0.3,
+        delay: 0.3
+      },
+      realignOnResize: true
+    };
 
    data: CloudData[] = [
       {text: 'test1', weight: 8, link: 'https://google.com', color: '#fff'},
@@ -33,20 +33,20 @@ export class TagsComponent implements OnInit {
   constructor(private articleService: ArticleService) { }
 
   ngOnInit(): void {
+    this.initialiseData();
+  }
+
+  initialiseData(){
+    const results: any = [];
     this.articleService.getAllTags()
-    .subscribe( res => {
+      .subscribe( res => {
       for(let key in res.tags) {
-        this.data.push({
+        results.push({
           text: key, weight: parseInt(res.tags[key]), link: 'https://google.com', color: '#fff'
         })
       }
-      this.newData(this.data);
     });
-  }
-
-  newData(data: any){
-    const changedData$: Observable<CloudData[]> = of(data);
+    const changedData$: Observable<CloudData[]> = of(results);
     changedData$.subscribe(res => this.data = res);
   }
-
 }
