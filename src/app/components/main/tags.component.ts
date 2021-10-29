@@ -20,8 +20,8 @@ export class TagsComponent implements OnInit {
    };
 
    data: CloudData[] = [
-      {text: 'test1', weight: 8, link: 'https://google.com', color: 'hsla(' + (Math.random() * 360) + ', 100%, 50%, 1)'},
-      {text: 'test2', weight: 10, link: 'https://google.com', color: 'hsla(' + (Math.random() * 360) + ', 100%, 50%, 1)'},
+      {text: 'test1', weight: 8, link: 'https://google.com', color: '#fff'},
+      {text: 'test2', weight: 10, link: 'https://google.com', color: '#fff'},
    ];
 
   constructor(private articleService: ArticleService) { }
@@ -30,9 +30,11 @@ export class TagsComponent implements OnInit {
     this.articleService.getAllTags()
     .subscribe( res => {
       for(let key in res.tags) {
+        console.log(key);
         this.data.push({
-          text: key, weight: parseInt(res.tags[key]), link: 'https://google.com', color: 'hsla(' + (Math.random() * 360) + ', 100%, 50%, 1)'
+          text: key, weight: parseInt(res.tags[key]), link: 'https://google.com', color: '#fff'
         })
+        console.log(this.data);
       }
     });
   }
