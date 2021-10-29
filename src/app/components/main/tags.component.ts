@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CloudData, CloudOptions, ZoomOnHoverOptions } from 'angular-tag-cloud-module';
+import { CloudData, CloudOptions } from 'angular-tag-cloud-module';
 import { Observable, of } from 'rxjs';
 import { ArticleService } from 'src/app/services/article.service';
 
@@ -40,7 +40,7 @@ export class TagsComponent implements OnInit {
       .subscribe( res => {
       for(let key in res.tags) {
         results.push({
-          text: key, weight: parseInt(res.tags[key]), color: '#ffffff'
+          text: key, weight: parseInt(res.tags[key]), color: '#ffffff', link: 'https://google.com'
         })
       }
     });
