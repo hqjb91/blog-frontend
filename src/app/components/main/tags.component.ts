@@ -25,15 +25,12 @@ export class TagsComponent implements OnInit {
       realignOnResize: true
     };
 
-   data: CloudData[] = [
-      {text: 'test1', weight: 8, link: 'https://google.com', color: '#fff'},
-      {text: 'test2', weight: 10, link: 'https://google.com', color: '#fff'},
-   ];
+   data: CloudData[] = this.initialiseData();
 
   constructor(private articleService: ArticleService) { }
 
   ngOnInit(): void {
-    this.initialiseData();
+    // this.initialiseData();
   }
 
   initialiseData(){
@@ -46,7 +43,8 @@ export class TagsComponent implements OnInit {
         })
       }
     });
-    const changedData$: Observable<CloudData[]> = of(results);
-    changedData$.subscribe(res => this.data = res);
+    // const changedData$: Observable<CloudData[]> = of(results);
+    // changedData$.subscribe(res => this.data = res);
+    return results;
   }
 }
