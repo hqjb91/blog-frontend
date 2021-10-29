@@ -31,6 +31,20 @@ export class ArticleService {
     getTotalAmountOfArticles(): Observable<{success: Boolean, length: number}> {
         return this.http.get<{success: Boolean, length: number}>('/api/article/length');
     }
-  
+
+    /**
+     * This method returns a map of tags
+     */
+    getAllTags(): Observable<{success: Boolean, tags: any}> {
+        return this.http.get<{success: Boolean, tags: any}>('/api/article/tags');
+    }
+
+    /**
+     * This method returns a map of categories
+     */
+    getAllCategories(): Observable<{success: Boolean, categories: any}> {
+        return this.http.get<{success: Boolean, categories: any}>('/api/article/categories');
+    }
+
     constructor(private http: HttpClient) { }
 }
