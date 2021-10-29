@@ -34,6 +34,7 @@ export class TagsComponent implements OnInit {
     console.log(`Before intialise ${this.data}`);
     this.initialiseData();
     console.log(`After intialise ${this.data}`);
+    this.initialiseData();
   }
 
   initialiseData(){
@@ -46,7 +47,7 @@ export class TagsComponent implements OnInit {
         })
       }
     });
-    console.log(results);
+    console.log("INIT RUN" + results);
 
     const changedData$: Observable<CloudData[]> = of(results);
     changedData$.subscribe(res => this.data = res);
