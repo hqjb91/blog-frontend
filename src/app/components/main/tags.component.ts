@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CloudData, CloudOptions } from 'angular-tag-cloud-module';
+import { CloudData, CloudOptions, ZoomOnHoverOptions } from 'angular-tag-cloud-module';
+import { Observable, of } from 'rxjs';
 import { ArticleService } from 'src/app/services/article.service';
 
 @Component({
@@ -12,12 +13,17 @@ export class TagsComponent implements OnInit {
   /**
    * Initialise the component class variables
    */
-   tags: any = {};
    options: CloudOptions = {
       width: 1000,
       height: 400,
       overflow: false,
    };
+
+   zoomOnHoverOptions: ZoomOnHoverOptions = {
+    scale: 1.5,
+    transitionTime: 1.2,
+    delay: 0.8
+  };
 
    data: CloudData[] = [
       {text: 'test1', weight: 8, link: 'https://google.com', color: '#fff'},
@@ -30,13 +36,17 @@ export class TagsComponent implements OnInit {
     this.articleService.getAllTags()
     .subscribe( res => {
       for(let key in res.tags) {
-        console.log(key);
         this.data.push({
           text: key, weight: parseInt(res.tags[key]), link: 'https://google.com', color: '#fff'
         })
-        console.log(this.data);
       }
+      this.newData(this.data);
     });
+  }
+
+  newData(data: any){
+    const changedData$: Observable<CloudData[]> = of(data);
+    changedData$.subscribe(res => this.data = res);
   }
 
 }
