@@ -23,7 +23,8 @@ export class TagsComponent implements OnInit {
         delay: 0
       },
       realignOnResize: true,
-      randomizeAngle: true
+      randomizeAngle: true,
+      font: 'small-caps bold 15px Calibri, sans-serif'
     };
 
    data: CloudData[] = [];
@@ -31,9 +32,6 @@ export class TagsComponent implements OnInit {
   constructor(private articleService: ArticleService) { }
 
   ngOnInit(): void {
-    console.log(`Before intialise ${this.data}`);
-    this.initialiseData();
-    console.log(`After intialise ${this.data}`);
     this.initialiseData();
   }
 
@@ -47,9 +45,10 @@ export class TagsComponent implements OnInit {
         })
       }
     });
-    console.log("INIT RUN" + results);
 
-    const changedData$: Observable<CloudData[]> = of(results);
-    changedData$.subscribe(res => this.data = res);
+    setTimeout(()=> { // Hacky way to be replaced with promises
+      const changedData$: Observable<CloudData[]> = of(results);
+      changedData$.subscribe(res => this.data = res);
+    },1000);
   }
 }
