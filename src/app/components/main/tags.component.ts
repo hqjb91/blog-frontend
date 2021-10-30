@@ -41,14 +41,11 @@ export class TagsComponent implements OnInit {
       .subscribe( res => {
       for(let key in res.tags) {
         results.push({
-          text: key, weight: parseInt(res.tags[key]), color: '#ffffff', link: 'https://google.com'
+          text: key, weight: parseInt(res.tags[key]), color: '#ffffff', link: `https://hequanjie.com/api/tags?tag=${key}`
         })
       }
-    });
-
-    setTimeout(()=> { // Hacky way to be replaced with promises
       const changedData$: Observable<CloudData[]> = of(results);
       changedData$.subscribe(res => this.data = res);
-    },1000);
+    });
   }
 }

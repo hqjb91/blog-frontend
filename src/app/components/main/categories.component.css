@@ -1,0 +1,10 @@
+@import url(https://fonts.googleapis.com/css?family=Squada+One);
+
+/* no decoration for links */
+::ng-deep angular-tag-cloud.custom-css a {
+  text-decoration: none;
+  color: inherit;
+}
+::ng-deep angular-tag-cloud.custom-css a:hover {
+  color: rgb(255, 255, 255);
+}
