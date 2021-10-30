@@ -1,6 +1,6 @@
 <article>
     <div class="subtitle">
-        {{article.username}} / {{article.date}}
+        {{article.username}} / {{article.date | date }}
     </div>
     <h1 class="title">
         {{article.title}}
@@ -9,6 +9,6 @@
     <div class="content">
         <img *ngIf="article.image" src="{{article.image}}">
         <img *ngIf="!article.image" src="https://picsum.photos/200/200/?blur=2">
-        <div [innerHTML]="data | safeHtml" runScripts></div>
+        <div [innerHTML]="article.content | safeHtml" runScripts></div>
     </div>
 </article>

@@ -17,7 +17,6 @@ export class ArticleComponent implements OnInit {
     image: "", date: new Date(), category: "Sample category",
     tags: [ "Sample tag" ], username: "Sample username",
   };
-  data: any | SafeHtml = this.article.content;
 
   constructor(private route: ActivatedRoute, private articleService: ArticleService) { }
 
