@@ -1,5 +1,5 @@
 <div>
     <angular-tag-cloud
-        [config]="options" [data]="data" [class.custom-css]='true'>
+        [config]="options" [data]="data" [class.custom-css]='true' (clicked)="viewCategories($event)">
     </angular-tag-cloud>
   </div>

@@ -18,6 +18,8 @@ const routes: Routes = [
   { path:'tags', component: TagsComponent },
   { path:'categories', component: CategoriesComponent },
   { path:'article/:id', component: ArticleComponent },
+  { path:'tag/:tag', component: ArticlesComponent },
+  { path:'category/:category', component: ArticlesComponent },
   { path: '**', redirectTo: '', pathMatch: 'full'} // Wildcard match
 ];
 

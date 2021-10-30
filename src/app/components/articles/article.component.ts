@@ -1,5 +1,5 @@
-import { Component, OnInit, SecurityContext } from '@angular/core';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { Component, OnInit } from '@angular/core';
+import { SafeHtml } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { Article } from 'src/app/models/Article';
 import { ArticleService } from 'src/app/services/article.service';
@@ -19,7 +19,7 @@ export class ArticleComponent implements OnInit {
   };
   data: any | SafeHtml = this.article.content;
 
-  constructor(private route: ActivatedRoute, private articleService: ArticleService, private sanitizer: DomSanitizer) { }
+  constructor(private route: ActivatedRoute, private articleService: ArticleService) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Article, ArticleWithoutContent } from 'src/app/models/Article';
+import { ArticleWithoutContent } from 'src/app/models/Article';
 import { ArticleService } from 'src/app/services/article.service';
 import { PageEvent } from '@angular/material/paginator';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-articles',
@@ -18,22 +19,28 @@ export class ArticlesComponent implements OnInit {
   limit: number = 8;
   offset: number = 0;
   pageSizeOptions = [4, 8, 12];
+  tag: string = '';
+  category: string = '';
 
-  constructor(private articleService: ArticleService) { }
+  constructor(private articleService: ArticleService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.articleService.getTotalAmountOfArticles().subscribe( res => this.length = res.length );
-    this.articleService.getAllArticles(this.limit.toString(), this.offset.toString())
-      .subscribe( res => this.articles = res.articlesSlice );
+    this.route.params.subscribe(params => {
+      this.tag = params.tag ? params.tag : '';
+      this.category = params.category ? params.category : '';
+      
+      this.articleService.getTotalAmountOfArticles(this.tag, this.category).subscribe( res => this.length = res.length );
+      this.articleService.getAllArticles(this.limit.toString(), this.offset.toString(), this.tag, this.category)
+        .subscribe( res => this.articles = res.articlesSlice );
+    });
   }
 
   onChangePage(pe: PageEvent) {
+    console.log(pe);
     this.limit = pe.pageSize;
     this.offset = pe.pageIndex * pe.pageSize;
-    this.articleService.getAllArticles(this.limit.toString(), this.offset.toString())
+    this.articleService.getAllArticles(this.limit.toString(), this.offset.toString(), this.tag, this.category)
     .subscribe( res => this.articles = res.articlesSlice );
-    console.log(pe);
-    console.log(`Page Limit is ${this.limit}. Page offset is ${this.offset}`);
   }
 
 }

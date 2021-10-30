@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CloudData, CloudOptions } from 'angular-tag-cloud-module';
 import { Observable, of } from 'rxjs';
 import { ArticleService } from 'src/app/services/article.service';
@@ -29,7 +30,7 @@ export class TagsComponent implements OnInit {
 
    data: CloudData[] = [];
 
-  constructor(private articleService: ArticleService) { }
+  constructor(private articleService: ArticleService, private router: Router) { }
 
   ngOnInit(): void {
     this.initialiseData();
@@ -41,11 +42,15 @@ export class TagsComponent implements OnInit {
       .subscribe( res => {
       for(let key in res.tags) {
         results.push({
-          text: key, weight: parseInt(res.tags[key]), color: '#ffffff', link: `https://hequanjie.com/api/tags?tag=${key}`
+          text: key, weight: parseInt(res.tags[key]), color: '#ffffff'
         })
       }
       const changedData$: Observable<CloudData[]> = of(results);
       changedData$.subscribe(res => this.data = res);
     });
+  }
+
+  viewTags(clicked: CloudData){
+    this.router.navigate(['tag',clicked.text]);
   }
 }

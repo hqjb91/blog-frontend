@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CloudData, CloudOptions } from 'angular-tag-cloud-module';
 import { Observable, of } from 'rxjs';
 import { ArticleService } from 'src/app/services/article.service';
@@ -28,7 +29,7 @@ export class CategoriesComponent implements OnInit {
 
  data: CloudData[] = [];
 
-constructor(private articleService: ArticleService) { }
+constructor(private articleService: ArticleService, private router: Router) { }
 
 ngOnInit(): void {
   this.initialiseData();
@@ -40,11 +41,15 @@ initialiseData(){
     .subscribe( res => {
     for(let key in res.categories) {
       results.push({
-        text: key, weight: parseInt(res.categories[key]), color: '#ffffff', link: `https://hequanjie.com/api/categories?category=${key}`
+        text: key, weight: parseInt(res.categories[key]), color: '#ffffff'
       })
     }
     const changedData$: Observable<CloudData[]> = of(results);
     changedData$.subscribe(res => this.data = res);
-  });
-}
+    });
+  }
+
+  viewCategories(clicked: CloudData){
+    this.router.navigate(['category',clicked.text]);
+  }
 }

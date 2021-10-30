@@ -12,8 +12,8 @@ export class ArticleService {
      * @param offset 
      * @returns Observable list of articles
      */
-    getAllArticles(limit: string, offset: string): Observable<ArticlesResponse> {
-        const queryParams = new HttpParams().set('limit', limit).set('offset', offset);
+    getAllArticles(limit: string, offset: string, tag: string, category: string): Observable<ArticlesResponse> {
+        const queryParams = new HttpParams().set('limit', limit).set('offset', offset).set('tag', tag).set('category', category);
 
         return this.http.get<ArticlesResponse>('/api/article', {params: queryParams});
     }
@@ -28,8 +28,10 @@ export class ArticleService {
     /**
      * This method returns the total number of articles stored in the database
      */
-    getTotalAmountOfArticles(): Observable<{success: Boolean, length: number}> {
-        return this.http.get<{success: Boolean, length: number}>('/api/article/length');
+    getTotalAmountOfArticles(tag: string, category: string): Observable<{success: Boolean, length: number}> {
+        const queryParams = new HttpParams().set('tag', tag).set('category', category);
+
+        return this.http.get<{success: Boolean, length: number}>('/api/article/length', {params: queryParams});
     }
 
     /**
