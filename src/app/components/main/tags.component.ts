@@ -15,18 +15,18 @@ export class TagsComponent implements OnInit {
    * Initialise the component class variables
    */
    options: CloudOptions = {
-      width: 0.8,
-      height: 400,
-      overflow: false,
-      zoomOnHover: {
-        scale: 2,
-        transitionTime: 0.8,
-        delay: 0
-      },
-      realignOnResize: true,
-      randomizeAngle: true,
-      font: 'small-caps bold 15px Calibri, sans-serif'
-    };
+    width: 0.8,
+    height: 400,
+    overflow: false,
+    zoomOnHover: {
+      scale: 1.5,
+      transitionTime: 0.8,
+      delay: 0
+    },
+    realignOnResize: true,
+    randomizeAngle: true,
+    font: 'small-caps bold 8px Calibri, sans-serif'
+  };
 
    data: CloudData[] = [];
 

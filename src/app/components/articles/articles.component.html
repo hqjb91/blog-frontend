@@ -16,7 +16,7 @@
                 <mat-card-actions>
                 <button mat-button *ngFor="let tag of article.tags" [routerLink]="['/tag', tag]">{{tag}}</button>
                     <div class="category">
-                        <button mat-button [routerLink]="['/category', article.category]">Category : {{article.category}}</button>
+                        <button mat-button [routerLink]="['/category', article.category]">{{article.category}}</button>
                     </div>
                 </mat-card-actions>
             </mat-card>
