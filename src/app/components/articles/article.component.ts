@@ -22,7 +22,7 @@ export class ArticleComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-      this.articleId = parseInt(params['id']);
+      this.articleId = params['id'];
     });
     this.articleService.getArticleById(this.articleId).subscribe( res => {
       this.article = res.article;
