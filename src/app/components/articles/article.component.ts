@@ -13,7 +13,7 @@ export class ArticleComponent implements OnInit {
 
   articleId: number = 0;
   article: Article = {
-    id: 0, title: "Sample title", summary: "Sample summary", content: `<b>Sample content</b>`,
+    _id: 0, title: "Sample title", summary: "Sample summary", content: `<b>Sample content</b>`,
     image: "", date: new Date(), category: "Sample category",
     tags: [ "Sample tag" ], username: "Sample username",
   };
@@ -22,7 +22,7 @@ export class ArticleComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-      this.articleId = parseInt(params.id);
+      this.articleId = parseInt(params['_id']);
     });
     this.articleService.getArticleById(this.articleId).subscribe( res => {
       this.article = res.article;

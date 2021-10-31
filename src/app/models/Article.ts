@@ -1,5 +1,5 @@
 export interface ArticleWithoutContent {
-    id: number;
+    _id: number;
     title: string;
     summary: string;
     image: string;
@@ -10,7 +10,7 @@ export interface ArticleWithoutContent {
 }
 
 export interface Article {
-    id: number;
+    _id: number;
     title: string;
     summary: string;
     content: string;
