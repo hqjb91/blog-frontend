@@ -1,16 +1,16 @@
 import { AfterViewChecked, Directive, ElementRef, OnDestroy, OnInit } from '@angular/core';
 
 @Directive({ selector: '[runScripts]' })
-export class RunscriptsDirective implements AfterViewChecked, OnDestroy {
+export class RunscriptsDirective implements AfterViewChecked {
     constructor(private elementRef: ElementRef) { }
 
     ngAfterViewChecked(): void {
         this.reinsertScripts();
     }
 
-    ngOnDestroy() {
-        window.location.reload();
-    }
+    // ngOnDestroy() {
+    //     window.location.reload();
+    // }
 
     reinsertScripts(): void {
         const scripts = <HTMLScriptElement[]>this.elementRef.nativeElement.getElementsByTagName('script');

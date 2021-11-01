@@ -3,12 +3,12 @@
         <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" fxFlexAlign="center" *ngFor="let article of articles">
             <mat-card class="card">
                 <mat-card-header>
-                    <mat-card-title [routerLink]="['/article', article['_id']]">{{article.title}}</mat-card-title>
+                    <mat-card-title (click)="navigateTo('/article', article['_id'].toString())">{{article.title}}</mat-card-title>
                     <mat-card-subtitle>By {{article.username}} on {{article.date | date }}</mat-card-subtitle>
                 </mat-card-header>
-                <img mat-card-image *ngIf="article.image" src="{{article.image}}" [routerLink]="['/article', article['_id']]">
-                <img mat-card-image *ngIf="!article.image" src="https://picsum.photos/200/200/?blur=2" [routerLink]="['/article', article['_id']]">
-                <mat-card-content [routerLink]="['/article', article['_id']]">
+                <img mat-card-image *ngIf="article.image" src="{{article.image}}" (click)="navigateTo('/article', article['_id'].toString())">
+                <img mat-card-image *ngIf="!article.image" src="https://via.placeholder.com/350x200.png?text={{article.title}}" (click)="navigateTo('/article', article['_id'].toString())">
+                <mat-card-content (click)="navigateTo('/article', article['_id'].toString())">
                 <p>
                     {{article.summary}}
                 </p>

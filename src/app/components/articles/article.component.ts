@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { SafeHtml } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { Article } from 'src/app/models/Article';
 import { ArticleService } from 'src/app/services/article.service';
