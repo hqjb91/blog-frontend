@@ -12,9 +12,9 @@ export class ArticleComponent implements OnInit {
 
   articleId: number = 0;
   article: Article = {
-    _id: 0, title: "Sample title", summary: "Sample summary", content: `<b>Sample content</b>`,
-    image: "", date: new Date(), category: "Sample category",
-    tags: [ "Sample tag" ], username: "Sample username",
+    _id: 0, title: "", summary: "", content: ``,
+    image: "", date: new Date(), category: "",
+    tags: [ "" ], username: "",
   };
 
   constructor(private route: ActivatedRoute, private articleService: ArticleService) { }
