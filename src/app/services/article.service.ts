@@ -22,7 +22,8 @@ export class ArticleService {
      * This method returns the total number of articles stored in the database
      */
     getArticleById(id: number): Observable<{success: Boolean, article: Article}> {
-        return this.http.get<{success: Boolean, article: Article}>(`/api/article?id=${id}`);
+        const queryParams = new HttpParams().set('limit', "").set('offset', "").set('tag', "").set('category', "");
+        return this.http.get<{success: Boolean, article: Article}>(`/api/article?id=${id}`, {params: queryParams});
     }
 
     /**

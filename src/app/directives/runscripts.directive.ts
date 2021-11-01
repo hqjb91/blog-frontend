@@ -6,7 +6,7 @@ export class RunscriptsDirective implements OnInit {
     ngOnInit(): void {
         setTimeout(() => { // wait for DOM rendering
             this.reinsertScripts();
-        });
+        }, 1000);
     }
     reinsertScripts(): void {
         const scripts = <HTMLScriptElement[]>this.elementRef.nativeElement.getElementsByTagName('script');
