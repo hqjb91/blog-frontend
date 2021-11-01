@@ -1,13 +1,13 @@
-import { Directive, ElementRef, OnInit } from '@angular/core';
+import { AfterViewInit, Directive, ElementRef } from '@angular/core';
 
 @Directive({ selector: '[runScripts]' })
-export class RunscriptsDirective implements OnInit {
+export class RunscriptsDirective implements AfterViewInit {
     constructor(private elementRef: ElementRef) { }
-    ngOnInit(): void {
-        setTimeout(() => { // wait for DOM rendering
-            this.reinsertScripts();
-        }, 1000);
+
+    ngAfterViewInit(): void  {
+        this.reinsertScripts();
     }
+
     reinsertScripts(): void {
         const scripts = <HTMLScriptElement[]>this.elementRef.nativeElement.getElementsByTagName('script');
         const scriptsInitialLength = scripts.length;
