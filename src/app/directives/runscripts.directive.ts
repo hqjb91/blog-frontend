@@ -1,10 +1,10 @@
-import { AfterViewInit, Directive, ElementRef } from '@angular/core';
+import { AfterContentInit, Directive, ElementRef } from '@angular/core';
 
 @Directive({ selector: '[runScripts]' })
-export class RunscriptsDirective implements AfterViewInit {
+export class RunscriptsDirective implements AfterContentInit {
     constructor(private elementRef: ElementRef) { }
 
-    ngAfterViewInit(): void  {
+    ngAfterContentInit(): void  {
         this.reinsertScripts();
     }
 
