@@ -1,16 +1,18 @@
 import { AfterViewChecked, Directive, ElementRef, HostListener } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Directive({ selector: '[runScripts]' })
 export class RunscriptsDirective implements AfterViewChecked {
-    constructor(private elementRef: ElementRef) { }
+    constructor(private elementRef: ElementRef, private router: Router) { }
 
     ngAfterViewChecked(): void {
         this.reinsertScripts();
-    }
-
-    @HostListener('unloaded')
-    ngOnDestroy() {
-        console.log('Cleared');
+        this.router.events
+                    .subscribe(event => {
+                        if(event instanceof NavigationEnd) {
+                            this.reinsertScripts();
+                        }
+                    });
     }
 
     reinsertScripts(): void {
