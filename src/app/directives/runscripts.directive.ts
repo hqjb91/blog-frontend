@@ -1,19 +1,16 @@
-import { AfterViewChecked, Directive, ElementRef } from '@angular/core';
-import { Router } from '@angular/router';
+import { AfterViewChecked, Directive, ElementRef, HostListener } from '@angular/core';
 
 @Directive({ selector: '[runScripts]' })
 export class RunscriptsDirective implements AfterViewChecked {
-    constructor(private elementRef: ElementRef, private router:Router) { }
-
-    ngOnInit() {
-        // Allows for ngOnInit to be called on routing to the same routing Component since we will never reuse a route
-        this.router.routeReuseStrategy.shouldReuseRoute = function() {
-            return false;
-        };
-    }
+    constructor(private elementRef: ElementRef) { }
 
     ngAfterViewChecked(): void {
         this.reinsertScripts();
+    }
+
+    @HostListener('unloaded')
+    ngOnDestroy() {
+        console.log('Cleared');
     }
 
     reinsertScripts(): void {
