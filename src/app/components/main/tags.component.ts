@@ -24,7 +24,6 @@ export class TagsComponent implements OnInit {
       delay: 0
     },
     realignOnResize: true,
-    randomizeAngle: true,
     font: 'small-caps bold 8px Calibri, sans-serif'
   };
 

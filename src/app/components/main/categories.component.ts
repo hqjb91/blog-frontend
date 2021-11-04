@@ -18,12 +18,11 @@ export class CategoriesComponent implements OnInit {
     height: 400,
     overflow: false,
     zoomOnHover: {
-      scale: 1.5,
+      scale: 1.2,
       transitionTime: 0.8,
       delay: 0
     },
     realignOnResize: true,
-    randomizeAngle: true,
     font: 'small-caps bold 8px Calibri, sans-serif'
   };
 
