@@ -2,7 +2,7 @@
     height: 20vh;
     background-image: url('/assets/toolbar-city.jpg');
     background-size: 100%;
-    background-position-y: 50px;
+    background-position: center;
 }
 
 .secondarybar {
