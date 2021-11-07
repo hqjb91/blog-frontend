@@ -1,6 +1,6 @@
 .content {
     padding: 16px;
-    color: #fff;
+    color: #000;
 }
 
 ul {
@@ -14,5 +14,5 @@ ul li {
 }
 
 a {
-    color: #fff;
+    color: #000;
 }

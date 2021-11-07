@@ -40,7 +40,7 @@ initialiseData(){
     .subscribe( res => {
     for(let key in res.categories) {
       results.push({
-        text: key, weight: parseInt(res.categories[key]), color: '#ffffff'
+        text: key, weight: parseInt(res.categories[key]), color: '#000000'
       })
     }
     const changedData$: Observable<CloudData[]> = of(results);

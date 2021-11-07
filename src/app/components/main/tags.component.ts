@@ -41,7 +41,7 @@ export class TagsComponent implements OnInit {
       .subscribe( res => {
       for(let key in res.tags) {
         results.push({
-          text: key, weight: parseInt(res.tags[key]), color: '#ffffff'
+          text: key, weight: parseInt(res.tags[key]), color: '#000000'
         })
       }
       const changedData$: Observable<CloudData[]> = of(results);
