@@ -1,16 +1,10 @@
 article {
-    background: #f4f4f4;
-    border: 1px solid #ddd;
+    background: #fff;
     color: #000;
-    page-break-inside: avoid;
-    font-size: 15px;
+    font-size: 18px;
     line-height: 1.6;
-    margin-bottom: 1.6em;
     max-width: 100%;
-    overflow: auto;
     padding: 1em 1.5em;
-    display: block;
-    word-wrap: break-word;
 }
 
 a {
