@@ -1,7 +1,7 @@
 <div class="content">
     <div fxLayout="row wrap" fxLayoutGap="16px grid">
         <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" fxFlexAlign="center" *ngFor="let article of articles">
-            <mat-card class="card">
+            <mat-card class="card mat-elevation-z5">
                 <mat-card-header>
                     <mat-card-title (click)="navigateTo('/article', article['_id'].toString())">{{article.title}}</mat-card-title>
                     <mat-card-subtitle>By {{article.username}} on {{article.date | date }}</mat-card-subtitle>

@@ -1,5 +1,7 @@
 .card {
   max-width: 400px;
+  background-color: #fff;
+  color: #000;
 }
 
 .content {
