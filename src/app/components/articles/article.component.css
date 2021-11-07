@@ -18,13 +18,6 @@ mat-divider {
     padding: 16px;
 }
 
-.content img {
-    padding-right: 32px;
-    padding-bottom: 16px;
-    float: left;
-    max-width: 100%;
-}
-
 pre {
     background: #f4f4f4;
     border: 1px solid #ddd;
