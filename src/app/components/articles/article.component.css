@@ -3,7 +3,7 @@ article {
     color: #000;
     font-size: 18px;
     line-height: 1.6;
-    max-width: 100%;
+    max-width: 90%;
     padding: 1em 1.5em;
 }
 
@@ -28,7 +28,7 @@ mat-divider {
 }
 
 pre {
-    background: #949090;
+    background: #424242;
     border: 1px solid #ddd;
     border-left: 3px solid #f36d33;
     color: #fff;
