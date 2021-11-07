@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Article } from 'src/app/models/Article';
 import { ArticleService } from 'src/app/services/article.service';
@@ -6,7 +6,8 @@ import { ArticleService } from 'src/app/services/article.service';
 @Component({
   selector: 'app-article',
   templateUrl: './article.component.html',
-  styleUrls: ['./article.component.css']
+  styleUrls: ['./article.component.css'],
+  encapsulation: ViewEncapsulation.None // Disable view encapsulation so css applied to dynamically inject html
 })
 export class ArticleComponent implements OnInit {
 
