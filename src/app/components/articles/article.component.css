@@ -1,13 +1,9 @@
-.outer {
-    justify-content: center;
-}
-
 article {
     background: #fff;
     color: #000;
     font-size: 18px;
     line-height: 1.6;
-    max-width: 90%;
+    max-width: 100%;
     padding: 1em 1.5em;
 }
 
@@ -46,4 +42,5 @@ pre {
     padding: 1em 1.5em;
     display: block;
     word-wrap: break-word;
+    border-radius: 15px 50px 30px;
 }
