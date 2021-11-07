@@ -1,12 +1,14 @@
-<article>
-    <div class="subtitle">
-        {{article.username}} / {{article.date | date }}
-    </div>
-    <h1 class="title">
-        {{article.title}}
-    </h1>
-    <mat-divider></mat-divider>
-    <div class="content">
-        <div [innerHTML]="article.content | safeHtml" runScripts></div>
-    </div>
-</article>
+<div id="outer">
+    <article>
+        <div class="subtitle">
+            {{article.username}} / {{article.date | date }}
+        </div>
+        <h1 class="title">
+            {{article.title}}
+        </h1>
+        <mat-divider></mat-divider>
+        <div class="content">
+            <div [innerHTML]="article.content | safeHtml" runScripts></div>
+        </div>
+    </article>
+</div>

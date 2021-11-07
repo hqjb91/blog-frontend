@@ -1,3 +1,7 @@
+.outer {
+    justify-content: center;
+}
+
 article {
     background: #fff;
     color: #000;
@@ -5,7 +9,6 @@ article {
     line-height: 1.6;
     max-width: 90%;
     padding: 1em 1.5em;
-    justify-content: center;
 }
 
 a {
