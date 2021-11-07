@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ArticleComponent } from './components/articles/article.component';
 import { ArticlesComponent } from './components/articles/articles.component';
+import { CreateArticleComponent } from './components/articles/create-article.component';
 import { AboutComponent } from './components/main/about.component';
 import { CategoriesComponent } from './components/main/categories.component';
 import { TagsComponent } from './components/main/tags.component';
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path:'about', component: AboutComponent },
   { path:'tags', component: TagsComponent },
   { path:'categories', component: CategoriesComponent },
+  { path:'create', component: CreateArticleComponent },
   { path:'article/:id', component: ArticleComponent },
   { path:'tag/:tag', component: ArticlesComponent },
   { path:'category/:category', component: ArticlesComponent },

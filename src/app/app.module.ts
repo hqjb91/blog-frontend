@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TagCloudModule } from 'angular-tag-cloud-module';
 import { MaterialModule } from './modules/material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -19,6 +19,8 @@ import { ArticlesComponent } from './components/articles/articles.component';
 import { SafehtmlPipe } from './pipes/safehtml.pipe';
 import { RunscriptsDirective } from './directives/runscripts.directive';
 
+import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { CreateArticleComponent } from './components/articles/create-article.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,7 @@ import { RunscriptsDirective } from './directives/runscripts.directive';
     ArticlesComponent,
     SafehtmlPipe,
     RunscriptsDirective,
+    CreateArticleComponent,
   ],
   imports: [
     BrowserModule, FlexLayoutModule,
@@ -36,7 +39,11 @@ import { RunscriptsDirective } from './directives/runscripts.directive';
     MaterialModule, HttpClientModule,
     TagCloudModule, ReactiveFormsModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

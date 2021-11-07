@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -17,11 +18,14 @@ export class LoginComponent implements OnInit {
   submit() {
     if (this.form.valid) {
       this.authService.login(this.form.value.username, this.form.value.password)
-              .subscribe( response => console.log(response) );
+              .subscribe( response => {
+                this.authService.setLocalStorage(response); 
+                this.router.navigate(['create']);
+              });
     }
   }
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
   }

@@ -49,5 +49,12 @@ export class ArticleService {
         return this.http.get<{success: Boolean, categories: any}>('/api/article/categories');
     }
 
+    /**
+     * This method posts an article to the backend
+     */
+    postArticle(title: string, summary: string, content: string, image: string, date: string, category: string, tags: string, username: string): Observable<{success: Boolean, result: any}> {
+        return this.http.post<{success: Boolean, result: any}>('/api/article', {title, summary, content, date, category, tags, username, image});
+    }
+
     constructor(private http: HttpClient) { }
 }
