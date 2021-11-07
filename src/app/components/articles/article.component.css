@@ -3,7 +3,6 @@ article {
     border: 1px solid #ddd;
     color: #000;
     page-break-inside: avoid;
-    font-family: monospace;
     font-size: 15px;
     line-height: 1.6;
     margin-bottom: 1.6em;
@@ -31,10 +30,10 @@ mat-divider {
 }
 
 pre {
-    background: #f4f4f4;
+    background: #949090;
     border: 1px solid #ddd;
     border-left: 3px solid #f36d33;
-    color: #666;
+    color: #606060;
     page-break-inside: avoid;
     font-family: monospace;
     font-size: 15px;

@@ -7,7 +7,6 @@
     </h1>
     <mat-divider></mat-divider>
     <div class="content">
-        <!-- <img *ngIf="article.image" src="{{article.image}}"> -->
         <div [innerHTML]="article.content | safeHtml" runScripts></div>
     </div>
 </article>
