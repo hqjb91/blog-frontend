@@ -5,10 +5,12 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatInputModule } from '@angular/material/input';
 
 const MATERIAL = [
   MatButtonModule, MatToolbarModule, MatIconModule, 
-  MatCardModule, MatPaginatorModule, MatDividerModule
+  MatCardModule, MatPaginatorModule, MatDividerModule,
+  MatInputModule
 ]
 
 @NgModule({
