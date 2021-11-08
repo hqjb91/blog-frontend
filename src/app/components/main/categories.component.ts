@@ -14,8 +14,8 @@ export class CategoriesComponent implements OnInit {
    * Initialise the component class variables
    */
    options: CloudOptions = {
-    width: 2,
-    height: 700,
+    width: 0.8,
+    height: 400,
     overflow: false,
     zoomOnHover: {
       scale: 1.2,
@@ -23,7 +23,7 @@ export class CategoriesComponent implements OnInit {
       delay: 0
     },
     realignOnResize: true,
-    font: 'small-caps bold 7px Calibri, sans-serif'
+    font: 'small-caps bold 8px Calibri, sans-serif'
   };
 
  data: CloudData[] = [];
