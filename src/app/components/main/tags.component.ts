@@ -17,9 +17,9 @@ export class TagsComponent implements OnInit {
    options: CloudOptions = {
     width: 2,
     height: 700,
-    overflow: true,
+    overflow: false,
     zoomOnHover: {
-      scale: 1.5,
+      scale: 1.2,
       transitionTime: 0.8,
       delay: 0
     },

@@ -16,7 +16,7 @@ export class CategoriesComponent implements OnInit {
    options: CloudOptions = {
     width: 2,
     height: 700,
-    overflow: true,
+    overflow: false,
     zoomOnHover: {
       scale: 1.2,
       transitionTime: 0.8,

@@ -4,6 +4,7 @@
 ::ng-deep angular-tag-cloud.custom-css a {
   text-decoration: none;
   color: inherit;
+  letter-spacing: 0em;
 }
 ::ng-deep angular-tag-cloud.custom-css a:hover {
   color: rgb(255, 255, 255);
