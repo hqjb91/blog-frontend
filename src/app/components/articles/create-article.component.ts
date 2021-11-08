@@ -28,7 +28,7 @@ export class CreateArticleComponent implements OnInit {
   submit() {
     if (this.form.valid) {
       const { title, summary, content, image, date, category, tags, username } = this.form.value;
-      this.articleService.postArticle(title, summary, content, image, date, category, tags, username)
+      this.articleService.postArticle(title, summary, content, image, date, category, encodeURIComponent(tags), username)
               .subscribe( response => {
                 console.log(response.result);
               });
