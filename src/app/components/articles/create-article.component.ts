@@ -17,6 +17,7 @@ export class CreateArticleComponent implements OnInit {
     date: new FormControl(''),
     category: new FormControl(''),
     tags: new FormControl(''),
+    username: new FormControl(''),
   });
 
   constructor(private articleService: ArticleService) { }
@@ -27,7 +28,7 @@ export class CreateArticleComponent implements OnInit {
   submit() {
     if (this.form.valid) {
       const { title, summary, content, image, date, category, tags, username } = this.form.value;
-      this.articleService.postArticle(title, summary, content, image, date, category, tags, username)
+      this.articleService.postArticle(title, summary, content, image, date, category, JSON.parse("[" + tags + "]"), username)
               .subscribe( response => {
                 console.log(response.result);
               });
