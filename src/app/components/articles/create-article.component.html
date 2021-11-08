@@ -16,7 +16,7 @@
 
   <p>
     <mat-form-field>
-      <input type="text" matInput placeholder="Content" formControlName="content">
+      <textarea matInput placeholder="Content" formControlName="content" fxFlex="1 1 100%"></textarea>
     </mat-form-field>
   </p>
 
@@ -28,7 +28,10 @@
 
   <p>
     <mat-form-field>
-      <input type="text" matInput placeholder="Date" formControlName="date">
+      <mat-label>Choose a date</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="date">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
   </p>
 
