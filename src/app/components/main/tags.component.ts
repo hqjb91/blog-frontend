@@ -24,7 +24,7 @@ export class TagsComponent implements OnInit {
       delay: 0
     },
     realignOnResize: true,
-    font: 'small-caps bold 8px Calibri, sans-serif'
+    font: 'small-caps bold 10px Calibri, sans-serif'
   };
 
    data: CloudData[] = [];

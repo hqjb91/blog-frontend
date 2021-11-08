@@ -20,6 +20,3 @@
 ::ng-deep angular-tag-cloud.custom-css span.w3 { font-size: 120%; }
 ::ng-deep angular-tag-cloud.custom-css span.w2 { font-size: 110%; }
 ::ng-deep angular-tag-cloud.custom-css span.w1 { font-size: 100%; }
-::ng-deep angular-tag-cloud.custom-css .tooltiptext {
-  font-size: 10px;
-}
