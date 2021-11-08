@@ -17,14 +17,14 @@ export class TagsComponent implements OnInit {
    options: CloudOptions = {
     width: 2,
     height: 700,
-    overflow: false,
+    overflow: true,
     zoomOnHover: {
       scale: 1.5,
       transitionTime: 0.8,
       delay: 0
     },
     realignOnResize: true,
-    font: 'small-caps bold 8px Calibri, sans-serif'
+    font: 'small-caps bold 7px Calibri, sans-serif'
   };
 
    data: CloudData[] = [];
