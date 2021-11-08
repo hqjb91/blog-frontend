@@ -8,3 +8,18 @@
 ::ng-deep angular-tag-cloud.custom-css a:hover {
   color: rgb(255, 255, 255);
 }
+
+/* font sizes */
+::ng-deep angular-tag-cloud.custom-css span.w10 { font-size: 270%; }
+::ng-deep angular-tag-cloud.custom-css span.w9 { font-size: 240%; }
+::ng-deep angular-tag-cloud.custom-css span.w8 { font-size: 210%; }
+::ng-deep angular-tag-cloud.custom-css span.w7 { font-size: 190%; }
+::ng-deep angular-tag-cloud.custom-css span.w6 { font-size: 170%; }
+::ng-deep angular-tag-cloud.custom-css span.w5 { font-size: 150%; }
+::ng-deep angular-tag-cloud.custom-css span.w4 { font-size: 130%; }
+::ng-deep angular-tag-cloud.custom-css span.w3 { font-size: 120%; }
+::ng-deep angular-tag-cloud.custom-css span.w2 { font-size: 110%; }
+::ng-deep angular-tag-cloud.custom-css span.w1 { font-size: 100%; }
+::ng-deep angular-tag-cloud.custom-css .tooltiptext {
+  font-size: 8px;
+}
