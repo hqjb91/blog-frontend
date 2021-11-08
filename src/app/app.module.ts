@@ -16,11 +16,11 @@ import { CategoriesComponent } from './components/main/categories.component';
 import { ArticleComponent } from './components/articles/article.component';
 import { LoginComponent } from './components/users/login.component';
 import { ArticlesComponent } from './components/articles/articles.component';
+import { CreateArticleComponent } from './components/articles/create-article.component';
+
 import { SafehtmlPipe } from './pipes/safehtml.pipe';
 import { RunscriptsDirective } from './directives/runscripts.directive';
-
 import { AuthInterceptor } from './interceptors/auth.interceptor';
-import { CreateArticleComponent } from './components/articles/create-article.component';
 
 @NgModule({
   declarations: [
