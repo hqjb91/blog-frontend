@@ -101,7 +101,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
           script: |
-            yes | rm -r /app/blog-backend/dist/blog-frontend/*
+            [ "$(ls -A /app/blog-backend/dist/blog-frontend)" ] && yes | rm -r /app/blog-backend/dist/blog-frontend/* || echo "Empty directory"
 
       - name: Send distribution to server
         uses: appleboy/scp-action@master
