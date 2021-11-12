@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ArticleWithoutContent } from 'src/app/models/Article';
 import { ArticleService } from 'src/app/services/article.service';
 import { PageEvent } from '@angular/material/paginator';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-articles',
@@ -22,7 +22,7 @@ export class ArticlesComponent implements OnInit {
   tag: string = '';
   category: string = '';
 
-  constructor(private articleService: ArticleService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private articleService: ArticleService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -40,13 +40,6 @@ export class ArticlesComponent implements OnInit {
     this.offset = pe.pageIndex * pe.pageSize;
     this.articleService.getAllArticles(this.limit.toString(), this.offset.toString(), this.tag, this.category)
     .subscribe( res => this.articles = res.articlesSlice );
-  }
-
-  navigateTo(path: string, params: string): void {
-    this.router.navigate([path, params])
-      .then(() => {
-        window.location.reload();
-      });
   }
 
 }
