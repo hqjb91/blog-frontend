@@ -49,34 +49,34 @@ export function app(): express.Express {
 function run(): void {
   // const port = process.env['PORT'] || 4200;
   const HTTP_PORT = process.env.HTTP_PORT;
-  const HTTPS_PORT = process.env.HTTPS_PORT;
+  // const HTTPS_PORT = process.env.HTTPS_PORT;
 
   // // Start up the Node server
   const server = app();
-  // server.listen(port, () => {
-  //   console.log(`Node Express server listening on http://localhost:${port}`);
-  // });
+  server.listen(HTTP_PORT, () => {
+    console.log(`Node Express server listening on http://localhost:${HTTP_PORT}`);
+  });
 
-  http.createServer(server).listen(HTTP_PORT, () => {
-    console.log(`Application started on port ${HTTP_PORT} at ${new Date()}`)
-  })
+  // http.createServer(server).listen(HTTP_PORT, () => {
+  //   console.log(`Application started on port ${HTTP_PORT} at ${new Date()}`)
+  // })
 
-try {
-    if (fs.existsSync('/etc/letsencrypt/live/hequanjie.com/privkey.pem')) {
-        https.createServer(
-            {
-                key: fs.readFileSync('/etc/letsencrypt/live/hequanjie.com/privkey.pem'),
-                cert: fs.readFileSync('/etc/letsencrypt/live/hequanjie.com/cert.pem'),
-                ca: fs.readFileSync('/etc/letsencrypt/live/hequanjie.com/chain.pem'),
-            },
-            server
-        ).listen(HTTPS_PORT, () => {
-            console.info(`Application started on port ${HTTPS_PORT} at ${new Date()}`);
-        });
-    }
-} catch(e) {
-    console.error(e);
-};
+// try {
+//     if (fs.existsSync('/etc/letsencrypt/live/hequanjie.com/privkey.pem')) {
+//         https.createServer(
+//             {
+//                 key: fs.readFileSync('/etc/letsencrypt/live/hequanjie.com/privkey.pem'),
+//                 cert: fs.readFileSync('/etc/letsencrypt/live/hequanjie.com/cert.pem'),
+//                 ca: fs.readFileSync('/etc/letsencrypt/live/hequanjie.com/chain.pem'),
+//             },
+//             server
+//         ).listen(HTTPS_PORT, () => {
+//             console.info(`Application started on port ${HTTPS_PORT} at ${new Date()}`);
+//         });
+//     }
+// } catch(e) {
+//     console.error(e);
+// };
 
 }
 
