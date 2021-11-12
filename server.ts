@@ -47,19 +47,14 @@ export function app(): express.Express {
 }
 
 function run(): void {
-  // const port = process.env['PORT'] || 4200;
-  const HTTP_PORT = process.env.HTTP_PORT;
-  // const HTTPS_PORT = process.env.HTTPS_PORT;
+  const HTTP_PORT = process.env.HTTP_PORT || 80;
+  const HTTPS_PORT = process.env.HTTPS_PORT || 443;
 
   // // Start up the Node server
   const server = app();
   server.listen(HTTP_PORT, () => {
     console.log(`Node Express server listening on http://localhost:${HTTP_PORT}`);
   });
-
-  // http.createServer(server).listen(HTTP_PORT, () => {
-  //   console.log(`Application started on port ${HTTP_PORT} at ${new Date()}`)
-  // })
 
 // try {
 //     if (fs.existsSync('/etc/letsencrypt/live/hequanjie.com/privkey.pem')) {
