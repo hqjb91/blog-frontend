@@ -6,6 +6,8 @@ import * as moment from "moment";
 @Injectable({providedIn: 'root'})
 export class AuthService {
 
+    baseURL: string = `https://hequanjie.com`;
+
     /**
      * This method logs in a user
      * @param username
@@ -14,7 +16,7 @@ export class AuthService {
      */
     login(username: string, password: string): Observable<{success: boolean, token: string, expiresIn: string}> {
         const user = {username, password};
-        return this.http.post<{success: boolean, token: string, expiresIn: string}>(`/api/user/login`, user);
+        return this.http.post<{success: boolean, token: string, expiresIn: string}>(`${this.baseURL}/api/user/login`, user);
     }
 
     setLocalStorage(response: {success: boolean, token: string, expiresIn: string}): void {

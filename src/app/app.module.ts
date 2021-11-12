@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TagCloudModule } from 'angular-tag-cloud-module';
 import { MaterialModule } from './modules/material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/main/navbar.component';
@@ -34,8 +34,8 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     CreateArticleComponent,
   ],
   imports: [
-    BrowserModule, FlexLayoutModule,
-    AppRoutingModule, BrowserAnimationsModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    AppRoutingModule, BrowserAnimationsModule, FlexLayoutModule,
     MaterialModule, HttpClientModule,
     TagCloudModule, ReactiveFormsModule
   ],
