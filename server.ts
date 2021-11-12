@@ -52,12 +52,12 @@ function run(): void {
   const HTTPS_PORT = process.env.HTTPS_PORT;
 
   // // Start up the Node server
-  // const server = app();
+  const server = app();
   // server.listen(port, () => {
   //   console.log(`Node Express server listening on http://localhost:${port}`);
   // });
 
-  http.createServer(app).listen(HTTP_PORT, () => {
+  http.createServer(server).listen(HTTP_PORT, () => {
     console.log(`Application started on port ${HTTP_PORT} at ${new Date()}`)
   })
 
@@ -69,7 +69,7 @@ try {
                 cert: fs.readFileSync('/etc/letsencrypt/live/hequanjie.com/cert.pem'),
                 ca: fs.readFileSync('/etc/letsencrypt/live/hequanjie.com/chain.pem'),
             },
-            app
+            server
         ).listen(HTTPS_PORT, () => {
             console.info(`Application started on port ${HTTPS_PORT} at ${new Date()}`);
         });
