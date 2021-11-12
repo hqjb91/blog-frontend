@@ -56,22 +56,22 @@ function run(): void {
     console.log(`Node Express server listening on http://localhost:${HTTP_PORT}`);
   });
 
-// try {
-//     if (fs.existsSync('/etc/letsencrypt/live/hequanjie.com/privkey.pem')) {
-//         https.createServer(
-//             {
-//                 key: fs.readFileSync('/etc/letsencrypt/live/hequanjie.com/privkey.pem'),
-//                 cert: fs.readFileSync('/etc/letsencrypt/live/hequanjie.com/cert.pem'),
-//                 ca: fs.readFileSync('/etc/letsencrypt/live/hequanjie.com/chain.pem'),
-//             },
-//             server
-//         ).listen(HTTPS_PORT, () => {
-//             console.info(`Application started on port ${HTTPS_PORT} at ${new Date()}`);
-//         });
-//     }
-// } catch(e) {
-//     console.error(e);
-// };
+try {
+    if (fs.existsSync('/etc/letsencrypt/live/hequanjie.com/privkey.pem')) {
+        https.createServer(
+            {
+                key: fs.readFileSync('/etc/letsencrypt/live/hequanjie.com/privkey.pem'),
+                cert: fs.readFileSync('/etc/letsencrypt/live/hequanjie.com/cert.pem'),
+                ca: fs.readFileSync('/etc/letsencrypt/live/hequanjie.com/chain.pem'),
+            },
+            server
+        ).listen(HTTPS_PORT, () => {
+            console.info(`Application started on port ${HTTPS_PORT} at ${new Date()}`);
+        });
+    }
+} catch(e) {
+    console.error(e);
+};
 
 }
 
