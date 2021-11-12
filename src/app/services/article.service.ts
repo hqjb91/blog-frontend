@@ -6,7 +6,7 @@ import { Article, ArticlesResponse } from '../models/Article';
 @Injectable({providedIn: 'root'})
 export class ArticleService {
 
-    baseURL: string = 'https://hequanjie.com';
+    baseURL: string = 'https://hequanjie.com:8443';
 
     /**
      * This method returns all the articles stored in the database with pagination

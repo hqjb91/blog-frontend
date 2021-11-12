@@ -8,6 +8,11 @@ import { AppServerModule } from './src/main.server';
 import { APP_BASE_HREF } from '@angular/common';
 import { existsSync } from 'fs';
 
+import * as https from 'https';
+import * as http from 'http';
+
+import * as fs from 'fs';
+
 import 'localstorage-polyfill'
 
 global['localStorage'] = localStorage;
@@ -15,7 +20,7 @@ global['localStorage'] = localStorage;
 // The Express app is exported so that it can be used by serverless Functions.
 export function app(): express.Express {
   const server = express();
-  const distFolder = join(process.cwd(), 'dist/blog-frontend/browser');
+  const distFolder = '/app/blog-backend/dist/blog-frontend/browser';
   const indexHtml = existsSync(join(distFolder, 'index.original.html')) ? 'index.original.html' : 'index';
 
   // Our Universal express-engine (found @ https://github.com/angular/universal/tree/master/modules/express-engine)
@@ -42,13 +47,37 @@ export function app(): express.Express {
 }
 
 function run(): void {
-  const port = process.env['PORT'] || 4200;
+  // const port = process.env['PORT'] || 4200;
+  const HTTP_PORT = process.env.HTTP_PORT;
+  const HTTPS_PORT = process.env.HTTPS_PORT;
 
-  // Start up the Node server
-  const server = app();
-  server.listen(port, () => {
-    console.log(`Node Express server listening on http://localhost:${port}`);
-  });
+  // // Start up the Node server
+  // const server = app();
+  // server.listen(port, () => {
+  //   console.log(`Node Express server listening on http://localhost:${port}`);
+  // });
+
+  http.createServer(app).listen(HTTP_PORT, () => {
+    console.log(`Application started on port ${HTTP_PORT} at ${new Date()}`)
+  })
+
+try {
+    if (fs.existsSync('/etc/letsencrypt/live/hequanjie.com/privkey.pem')) {
+        https.createServer(
+            {
+                key: fs.readFileSync('/etc/letsencrypt/live/hequanjie.com/privkey.pem'),
+                cert: fs.readFileSync('/etc/letsencrypt/live/hequanjie.com/cert.pem'),
+                ca: fs.readFileSync('/etc/letsencrypt/live/hequanjie.com/chain.pem'),
+            },
+            app
+        ).listen(HTTPS_PORT, () => {
+            console.info(`Application started on port ${HTTPS_PORT} at ${new Date()}`);
+        });
+    }
+} catch(e) {
+    console.error(e);
+};
+
 }
 
 // Webpack will replace 'require' with '__webpack_require__'

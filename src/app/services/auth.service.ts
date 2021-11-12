@@ -6,7 +6,7 @@ import * as moment from "moment";
 @Injectable({providedIn: 'root'})
 export class AuthService {
 
-    baseURL: string = `https://hequanjie.com`;
+    baseURL: string = `https://hequanjie.com:8443`;
 
     /**
      * This method logs in a user

@@ -92,7 +92,17 @@ jobs:
           npm install -g @angular/cli@12.2.11
           npm ci
           ng build && ng run blog-frontend:server
-    
+
+      - name: Clear old dist folder
+        uses: appleboy/ssh-action@master
+        with:
+          host: hequanjie.com
+          username: root
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22
+          script: |
+            yes | rm -r /app/blog-backend/dist/blog-frontend/*
+
       - name: Send distribution to server
         uses: appleboy/scp-action@master
         with:
