@@ -9,9 +9,8 @@ import { APP_BASE_HREF } from '@angular/common';
 import { existsSync } from 'fs';
 
 import * as https from 'https';
-import * as http from 'http';
-
 import * as fs from 'fs';
+import * as os from 'os';
 
 import 'localstorage-polyfill'
 
@@ -20,7 +19,11 @@ global['localStorage'] = localStorage;
 // The Express app is exported so that it can be used by serverless Functions.
 export function app(): express.Express {
   const server = express();
-  const distFolder = '/app/blog-backend/dist/blog-frontend/browser';
+  let distFolder = '/app/blog-backend/dist/blog-frontend/browser';
+  if (process.env.NODE_ENV !== 'production' || os.hostname() === 'LAPTOP-C2N7G7I4') { // Check if running from my local machine or non-production
+    console.log('Using non-production environment.');
+    distFolder = "C:\\Users\\hqjb\\OneDrive\\Desktop\\Programming\\Personal Blog\\blog-frontend\\dist\\blog-frontend\\browser";
+  }
   const indexHtml = existsSync(join(distFolder, 'index.original.html')) ? 'index.original.html' : 'index';
 
   // Our Universal express-engine (found @ https://github.com/angular/universal/tree/master/modules/express-engine)
