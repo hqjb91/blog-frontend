@@ -1,22 +1,10 @@
-import {Component, Inject, OnInit, PLATFORM_ID} from '@angular/core';
-import {isPlatformBrowser} from '@angular/common';
+import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-layout',
+  selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
-  display = true;
-  constructor( @Inject(PLATFORM_ID) private platformId: Object) {
-    if (!isPlatformBrowser(this.platformId)) {
-      this.display = false;
-    }
-  }
-
-  ngOnInit() {
-  }
-  onActivate(event:any) {
-
-  }
+export class AppComponent {
+  title = 'blog-frontend';
 }
