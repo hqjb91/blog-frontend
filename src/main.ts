@@ -9,16 +9,13 @@ if (environment.production) {
 }
 
 function bootstrap() {
-  document.addEventListener("DOMContentLoaded", () => {
-    platformBrowserDynamic()
-      .bootstrapModule(AppModule)
-      .catch(err => console.log(err));
-  });
-};  
+     platformBrowserDynamic().bootstrapModule(AppModule)
+  .catch(err => console.error(err));
+   };  
 
-if (document.readyState === 'complete') {
-  bootstrap();
-} else {
+// if (document.readyState === 'complete') {
+//   bootstrap();
+// } else {
   document.addEventListener('DOMContentLoaded', bootstrap);
-}
+// }
 
