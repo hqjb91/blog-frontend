@@ -7,6 +7,7 @@ import { TagCloudModule } from 'angular-tag-cloud-module';
 import { MaterialModule } from './modules/material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { TransferHttpCacheModule } from '@nguniversal/common';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/main/navbar.component';
@@ -36,7 +37,7 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule, BrowserAnimationsModule, FlexLayoutModule,
-    MaterialModule, HttpClientModule,
+    MaterialModule, HttpClientModule, TransferHttpCacheModule,
     TagCloudModule, ReactiveFormsModule
   ],
   providers: [{
