@@ -11,6 +11,7 @@ import { existsSync } from 'fs';
 import * as https from 'https';
 import * as fs from 'fs';
 import * as os from 'os';
+const rateLimit = require("express-rate-limit");
 
 import 'localstorage-polyfill'
 
@@ -34,6 +35,13 @@ export function app(): express.Express {
   server.set('view engine', 'html');
   server.set('views', distFolder);
 
+  const limiter = rateLimit({
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    max: 100 // limit each IP to 100 requests per windowMs
+  });
+
+  server.use(limiter);
+
   // Example Express Rest API endpoints
   // server.get('/api/**', (req, res) => { });
   // Serve static files from /browser
@@ -45,6 +53,7 @@ export function app(): express.Express {
   server.get('*', (req, res) => {
     res.render(indexHtml, { req, providers: [{ provide: APP_BASE_HREF, useValue: req.baseUrl }] });
   });
+
 
   return server;
 }
